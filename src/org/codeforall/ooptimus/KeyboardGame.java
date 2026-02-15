@@ -7,13 +7,12 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import java.io.IOException;
-
 public class KeyboardGame implements KeyboardHandler {
     private Keyboard kb = new Keyboard(this);
     private Rectangle[][] copy = new Rectangle[Grid.ROWS][Grid.COLS];
     private Cursor cursor;
     private Grid grid;
+    private Color currentPaintColor = Color.BLUE;
 
     public KeyboardGame(Cursor cursor, Grid grid) {
         this.cursor = cursor;
@@ -61,6 +60,11 @@ public class KeyboardGame implements KeyboardHandler {
         c.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         c.setKey(KeyboardEvent.KEY_C);
         kb.addEventListener(c);
+
+        KeyboardEvent h = new KeyboardEvent();
+        h.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        h.setKey(KeyboardEvent.KEY_H);
+        kb.addEventListener(h);
     }
 
     @Override
@@ -88,25 +92,31 @@ public class KeyboardGame implements KeyboardHandler {
             }
             case KeyboardEvent.KEY_SPACE -> {
                 Rectangle currentRectangle = grid.getGridCells()[cursor.getRectangle().getX() / Grid.CELL_SIZE][cursor.getRectangle().getY() / Grid.CELL_SIZE];
-                if (!grid.getGridCells()[cursor.getRectangle().getX() / Grid.CELL_SIZE][cursor.getRectangle().getY() / Grid.CELL_SIZE].isFilled()) {
-                    currentRectangle.setColor(Color.BLUE);
+                if (!currentRectangle.isFilled()) {
+                    currentRectangle.setColor(currentPaintColor); // cor original
                     currentRectangle.fill();
                 } else {
                     currentRectangle.setColor(Color.BLACK);
                     currentRectangle.draw();
                 }
+
             }
             case KeyboardEvent.KEY_S -> {
                 saveGame saveGame = new saveGame();
-                String rectanglePaint = "";
+                StringBuilder sb = new StringBuilder();
+
                 for (int i = 0; i < grid.getGridCells().length; i++) {
                     for (int j = 0; j < grid.getGridCells()[i].length; j++) {
-                        if (grid.getGridCells()[i][j].isFilled()) {
-                            rectanglePaint += grid.toString(i, j) + "\n";
+
+                        Rectangle rect = grid.getGridCells()[i][j];
+
+                        if (rect.isFilled()) {
+                            sb.append(grid.toString(i, j)).append("\n");
                         }
                     }
                 }
-                saveGame.saveG(rectanglePaint);
+
+                saveGame.saveG(sb.toString());
             }
             case KeyboardEvent.KEY_L -> {
                 loadGame loadGame = new loadGame();
@@ -115,6 +125,11 @@ public class KeyboardGame implements KeyboardHandler {
             case KeyboardEvent.KEY_C -> {
                 printCopy();
             }
+            case KeyboardEvent.KEY_H -> {
+               cursor.getRectangle().setColor(ColorUtil.randomColor());
+               currentPaintColor = ColorUtil.randomColor();
+            }
+
             default -> throw new IllegalStateException("Unexpected value: " + keyboardEvent.getKey());
         }
     }

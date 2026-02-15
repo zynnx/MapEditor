@@ -1,13 +1,15 @@
 package org.codeforall.ooptimus;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 import java.util.Arrays;
+import java.util.Random;
 
-public class Grid extends Rectangle {
+public class Grid extends Rectangle  {
 
     public static int ROWS = 20, COLS = 20, CELL_SIZE = 20;
-    private Rectangle[][] gridCells;
+    private final Rectangle[][] gridCells;
 
     public Grid() {
         gridCells = new Rectangle[ROWS][COLS];
@@ -23,7 +25,14 @@ public class Grid extends Rectangle {
         return gridCells;
     }
 
-    public String toString(int x, int j) {
-        return "Condition met at row " + x + " column " + j;
+    public String toString(int row, int col) {
+        Rectangle rect = gridCells[row][col];
+        Color c = rect.getColor();
+
+        return "Condition met at row " + row +
+                " column " + col +
+                " r " + c.getRed() +
+                " g " + c.getGreen() +
+                " b " + c.getBlue();
     }
 }

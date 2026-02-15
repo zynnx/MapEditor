@@ -12,7 +12,6 @@ public class Game {
     }
 
     public void init() {
-        Game game = this;
         kb.handler();
     }
 }
