@@ -1,0 +1,43 @@
+1. “Fala-me de ti"
+Fiz o bootcamp da Code for All_, um programa intensivo de 14 semanas em full-stack development. Foi muito focado em fundamentos, aprendizagem rápida e trabalho em equipa. Sei que ainda estou no início, mas quero muito continuar a aprender num contexto real, com equipas e código em produção.
+
+2. “O que aprendeste no bootcamp?”
+Aprendi bases de backend e frontend, como funcionam APIs, bases de dados, Git e trabalho em equipa. Mais do que ferramentas específicas, aprendi a aprender, a pesquisar, a pedir ajuda e a não ficar bloqueado.
+
+3. “O que procuras neste estágio?”
+Aprender como se trabalha num produto real, receber feedback, melhorar como developer e perceber como é engenharia de software numa empresa como a Critical TechWorks.
+
+3) O que fazes quando não sabes resolver um problema?
+👉 Pergunta CHAVE para estágio
+Resposta ideal:
+“Primeiro tento perceber bem o problema, depois procuro na documentação ou em fontes confiáveis, tento uma solução simples e, se ficar bloqueado, peço ajuda explicando o que já tentei.”
+
+7) Porque te candidataste à Critical TechWorks?
+👉 Aqui tens de mostrar que leste o material
+Resposta ideal:
+“Identifiquei-me muito com a forma como a Critical TechWorks valoriza pessoas, aprendizagem e autonomia. Para um primeiro passo profissional, faz sentido estar num sítio onde posso aprender com equipas experientes e trabalhar em produtos reais.”
+
+8) Imagina que te pedem algo que nunca fizeste. O que fazes?
+Resposta perfeita:
+“Não entro em pânico 😅 Tento perceber o objetivo, dividir o problema em partes mais pequenas, pesquisar, experimentar e pedir feedback para garantir que estou no caminho certo.”
+
+API → forma de comunicar frontend ↔ backend
+HTTP → pedidos/respostas (GET, POST)
+Base de dados → guardar informação (users, dados, etc.)
+Endpoint → URL + método que faz algo
+Frase útil:
+“Uma API REST expõe endpoints que recebem pedidos HTTP e devolvem respostas, normalmente em JSON.”
+
+Frontend (muito básico)
+HTML → estrutura
+CSS → estilo
+JS → lógica
+
+Git
+git clone
+git add .
+git commit
+git push
+
+Como é o acompanhamento de um estagiário?
+O que esperam de alguém neste estágio?
